@@ -36,8 +36,7 @@ var userSchema = new mongoose.Schema({
         type:String,
         required:true,
         trim:true,
-        minlength:6,
-
+        minlength:8,
     },
     tokens:[
         {
@@ -63,6 +62,9 @@ var userSchema = new mongoose.Schema({
         },
        name_who_added:{
         type:String,
+       },
+        note:{
+        type:String,
        }
     }
 ] ,
@@ -80,6 +82,9 @@ var userSchema = new mongoose.Schema({
         type:String
         ,},
        name_who_added:{
+        type:String,
+       },
+        note:{
         type:String,
        }
     }
@@ -99,6 +104,9 @@ var userSchema = new mongoose.Schema({
         ,},
        name_who_added:{
         type:String,
+       },
+        note:{
+        type:String,
        }
     }
 ] ,
@@ -116,6 +124,9 @@ var userSchema = new mongoose.Schema({
         type:String
         ,},
        name_who_added:{
+        type:String,
+       },
+        note:{
         type:String,
        }
     }
@@ -164,4 +175,4 @@ userSchema.pre("save",async function(){
       
 
 
-module.exports = mongoose.model('User', userSchema );
+module.exports = mongoose.model('User', userSchema);
