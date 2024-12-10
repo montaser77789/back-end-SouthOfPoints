@@ -38,9 +38,9 @@ var userSchema = new mongoose.Schema({
         trim:true,
         minlength:8,
         validate(value){
-            const StrongPassword = new RegExp("^(?=.*[a-z])(?=.*[0-9])")
+            const StrongPassword = new RegExp("^(?=.[a-z])(?=.[0-9])")
             if(!StrongPassword.test(value)){
-              throw new Error(" Password must contain ' ^(?=.*[a-z])(?=.*[0-9]) ' ")
+              throw new Error(" Password must contain ' ^(?=.[a-z])(?=.[0-9]) ' ")
             }
           }
     },
@@ -65,7 +65,10 @@ var userSchema = new mongoose.Schema({
        },
        date:{
         type:String
-        ,}
+        },
+       name_who_added:{
+        type:String,
+       }
     }
 ] ,
     
@@ -80,7 +83,10 @@ var userSchema = new mongoose.Schema({
        },
        date:{
         type:String
-        ,}
+        ,},
+       name_who_added:{
+        type:String,
+       }
     }
 ] ,
     
@@ -95,7 +101,10 @@ var userSchema = new mongoose.Schema({
        },
        date:{
         type:String
-        ,}
+        ,},
+       name_who_added:{
+        type:String,
+       }
     }
 ] ,
     
@@ -110,7 +119,10 @@ var userSchema = new mongoose.Schema({
        },
        date:{
         type:String
-        ,}
+        ,},
+       name_who_added:{
+        type:String,
+       }
     }
 ] ,
     passwordChangedAt: {
@@ -157,4 +169,4 @@ userSchema.pre("save",async function(){
       
 
 
-module.exports = mongoose.model('User', userSchema);
+module.exports = mongoose.model('User', userSchema );
