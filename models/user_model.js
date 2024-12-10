@@ -36,13 +36,8 @@ var userSchema = new mongoose.Schema({
         type:String,
         required:true,
         trim:true,
-        minlength:8,
-        validate(value){
-            const StrongPassword = new RegExp("^(?=.[a-z])(?=.[0-9])")
-            if(!StrongPassword.test(value)){
-              throw new Error(" Password must contain ' ^(?=.[a-z])(?=.[0-9]) ' ")
-            }
-          }
+        minlength:6,
+
     },
     tokens:[
         {
