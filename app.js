@@ -15,7 +15,12 @@ app.use(express.json());
 app.use(cookieParser());
 app.use(bodyParser.json({ limit: "30mb", extended: true }));
 app.use(bodyParser.urlencoded({ limit: "30mb", extended: true }));
-app.use(cors());
+app.use(cors({
+    origin: "https://south-zone-points.vercel.app", // اسمح فقط للفرونت إند الخاص بك
+    methods: "GET,POST,PUT,DELETE",
+    credentials: true // ضروري إذا كنت تستخدم الكوكيز
+  }));
+  
 
 const userRouter = require('./routers/user_router');
 
